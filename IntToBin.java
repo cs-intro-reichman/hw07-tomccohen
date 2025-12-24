@@ -4,7 +4,9 @@ public class IntToBin {
     public static void main(String[] args) {
         //int x = 13;
         int x = Integer.parseInt(args[0]);
+        int y = Integer.parseInt(args[1]);
         System.out.println("Binary representation of " + x + " is: " + toBinary(x));
+        System.out.println("Binary representation of " + x + " is: " + toBin(y));
     }
 
     /** Returns the binary representation of the given integer, as a string of 0's and 1's.  */
@@ -19,10 +21,16 @@ public class IntToBin {
 
             if (x % 2 == 1 && x >= 1) s = "1";
 
-            x = x / 2;
-
-            return toBinary(x) + s;
+            return toBinary(x / 2) + s;
         }
         return s;
-    }    
+    }
+    
+    public static String toBin(int y) {
+        String s = "";
+        if (y == 1) return s = "1" + s;
+        if (y == 0) return s = "0" + s;
+
+        return toBin(y / 2) + y % 2;
+    }
  }
